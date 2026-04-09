@@ -1,0 +1,941 @@
+ :root{
+  --bg: #080732;          /* page background */
+  --surface: #0f0f3d;     /* cards */
+  --surface-2: #141455;   /* deeper surface */
+  --text: #ffffff;
+  --muted: #cbd0ff;
+  --border: rgba(255,255,255,.12);
+
+  --primary: #5464d2;     /* buttons */
+  --frame: #000000;       /* header & footer */
+
+  /* LyraBet accents */
+  --title: #5464d2;
+  --title-hi: #b7c0ff;
+  --title-lo: #2f3aa8;
+
+  --container: 1200px;
+  --radius: 14px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+code{
+  background: rgba(255,255,255,.08);
+  border: 1px solid var(--border);
+  padding: .1rem .35rem;
+  border-radius: 8px;
+}
+
+.lyr7bd21-container{
+  width: min(var(--container), calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+/* HEADER */
+.lyr7bd21-site-header{
+  background: var(--frame); /* required */
+  position: sticky;
+  top:0;
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+}
+
+.lyr7bd21-header-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+}
+
+.lyr7bd21-brand{
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  font-weight: 800;
+  letter-spacing:.2px;
+}
+.lyr7bd21-brand-mark{
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(84,100,210,.18);
+  border: 1px solid rgba(84,100,210,.35);
+  display:grid;
+  place-items:center;
+  color: var(--primary);
+}
+.lyr7bd21-brand-name{ font-size: 1.05rem; }
+
+.lyr7bd21-nav{
+  display:none;
+  gap: 1rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.lyr7bd21-nav a{ padding: .35rem .5rem; border-radius: 10px; }
+.lyr7bd21-nav a:hover{ background: rgba(255,255,255,.06); color: #fff; }
+
+.lyr7bd21-header-cta{ display:flex; gap:.6rem; align-items:center; }
+
+/* BUTTONS */
+.lyr7bd21-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  border-radius: 12px;
+  padding: .65rem .9rem;
+  font-weight: 800;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform .08s ease, filter .2s ease, background .2s ease, border-color .2s ease;
+  user-select:none;
+}
+.lyr7bd21-btn:active{ transform: scale(.98); }
+
+.lyr7bd21-btn-primary{
+  background: var(--primary);
+  color: #ffffff;
+  border-color: rgba(255,255,255,.08);
+}
+.lyr7bd21-btn-primary:hover{ filter: brightness(1.07); }
+
+.lyr7bd21-btn-ghost{
+  background: transparent;
+  border-color: var(--border);
+  color: #fff;
+}
+.lyr7bd21-btn-ghost:hover{ background: rgba(255,255,255,.06); }
+
+.lyr7bd21-btn-lg{ padding: .85rem 1.1rem; border-radius: 14px; }
+.lyr7bd21-btn-sm{ padding: .5rem .7rem; border-radius: 12px; font-size: .92rem; }
+
+/* HERO */
+.lyr7bd21-hero{
+  background:
+    radial-gradient(900px 420px at 75% 35%, rgba(84,100,210,.30), transparent 60%),
+    radial-gradient(700px 380px at 20% 20%, rgba(138,86,255,.18), transparent 60%),
+    radial-gradient(820px 520px at 50% 105%, rgba(84,100,210,.14), transparent 55%),
+    linear-gradient(135deg, rgba(0,0,0,.92) 0%, rgba(8,7,50,1) 55%, rgba(84,100,210,.12) 100%);
+  padding: 2.2rem 0 2.4rem;
+}
+
+.lyr7bd21-hero-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.lyr7bd21-hero-title{
+  margin: 0 0 .8rem;
+  font-size: clamp(1.65rem, 3.2vw, 2.6rem);
+  line-height: 1.12;
+}
+
+.lyr7bd21-hero-text{
+  margin: 0 0 1.1rem;
+  color: var(--muted);
+  max-width: 65ch;
+}
+
+.lyr7bd21-hero-actions{
+  display:flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.lyr7bd21-hero-badges{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display:flex;
+  gap: .7rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+}
+.lyr7bd21-hero-badges li{
+  padding: .45rem .7rem;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.lyr7bd21-hero-banner{
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  gap: .55rem;
+  min-height: 260px;
+}
+
+.lyr7bd21-banner-chip{
+  width: fit-content;
+  font-weight: 900;
+  font-size: .82rem;
+  letter-spacing: .6px;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  background: rgba(84,100,210,.18);
+  border: 1px solid rgba(84,100,210,.35);
+  color: #eef0ff;
+}
+.lyr7bd21-banner-title{
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+.lyr7bd21-banner-sub{
+  color: var(--muted);
+  margin-bottom: .4rem;
+}
+
+/* SECTIONS */
+.lyr7bd21-section{ padding: 2.2rem 0; }
+.lyr7bd21-section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom: 1rem;
+}
+.lyr7bd21-section-title{
+  margin:0;
+  font-size: 1.35rem;
+}
+
+/* Flamez-like heading gradient */
+.lyr7bd21-hero-title,
+.lyr7bd21-section-title,
+.lyr7bd21-content h1,
+.lyr7bd21-content h2,
+.lyr7bd21-content h3{
+  color: var(--title);
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text){
+  .lyr7bd21-hero-title,
+  .lyr7bd21-section-title,
+  .lyr7bd21-content h1,
+  .lyr7bd21-content h2,
+  .lyr7bd21-content h3{
+    background-image: linear-gradient(180deg, var(--title-hi), var(--title) 55%, var(--title-lo));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.lyr7bd21-section-link{
+  color: var(--muted);
+  font-weight: 700;
+}
+.lyr7bd21-section-link:hover{ color: #fff; text-decoration: underline; }
+
+/* TOP WINNINGS */
+.lyr7bd21-winnings-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow:hidden;
+}
+.lyr7bd21-winnings-row{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr .7fr .7fr;
+  gap: .8rem;
+  padding: .9rem 1rem;
+  border-top: 1px solid var(--border);
+  align-items:center;
+}
+.lyr7bd21-winnings-head{
+  border-top: 0;
+  background: rgba(255,255,255,.04);
+  color: var(--muted);
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+.lyr7bd21-player{ display:flex; align-items:center; gap:.6rem; min-width:0; }
+.lyr7bd21-avatar{
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  background: rgba(84,100,210,.16);
+  border: 1px solid rgba(84,100,210,.3);
+  color: #eef0ff;
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+.lyr7bd21-right{ text-align:right; }
+.lyr7bd21-win-amount{ font-weight: 900; color: var(--title-hi); }
+.lyr7bd21-muted{ color: var(--muted); }
+.lyr7bd21-small-note{ font-size: .92rem; }
+
+/* GAMES */
+.lyr7bd21-games-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .9rem;
+}
+.lyr7bd21-game-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow:hidden;
+  transition: transform .18s ease, border-color .18s ease;
+}
+.lyr7bd21-game-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(84,100,210,.45);
+}
+.lyr7bd21-game-card img{ width:100%; height:auto; display:block; }
+.lyr7bd21-game-meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: .8rem;
+  padding: .8rem .85rem;
+}
+.lyr7bd21-game-name{
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* PROVIDERS */
+.lyr7bd21-providers-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .75rem;
+}
+.lyr7bd21-provider{
+  background: var(--surface);
+  border: 1px dashed rgba(255,255,255,.18);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align:center;
+  color: var(--muted);
+  font-weight: 800;
+}
+.lyr7bd21-provider:hover{
+  border-style: solid;
+  border-color: rgba(84,100,210,.35);
+  color: #fff;
+}
+
+/* CONTENT */
+.lyr7bd21-content{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+}
+.lyr7bd21-content h1{ margin:0 0 .9rem; line-height: 1.2; }
+.lyr7bd21-content h2{ margin:0 0 .8rem; }
+.lyr7bd21-content h3{ margin: 1.2rem 0 .6rem; }
+.lyr7bd21-content p{ margin: 0 0 .8rem; color: var(--muted); }
+.lyr7bd21-content ul, .lyr7bd21-content ol{ margin: .2rem 0 1rem 1.2rem; color: var(--muted); }
+.lyr7bd21-content li{ margin: .35rem 0; }
+
+.lyr7bd21-form{
+  margin: 0 0 1.2rem;
+  padding: 1rem;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.lyr7bd21-form-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: .8rem;
+}
+.lyr7bd21-form-row{
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+  margin: 0 0 .8rem;
+}
+.lyr7bd21-form-row label{
+  font-weight: 700;
+  color: #eaf0ff;
+}
+.lyr7bd21-form-row input,
+.lyr7bd21-form-row select,
+.lyr7bd21-form-row textarea{
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0b0d36;
+  color: #fff;
+  padding: .65rem .75rem;
+  font: inherit;
+}
+.lyr7bd21-form-row input:focus,
+.lyr7bd21-form-row select:focus,
+.lyr7bd21-form-row textarea:focus{
+  outline: 2px solid rgba(84,100,210,.45);
+  border-color: rgba(84,100,210,.55);
+}
+.lyr7bd21-form-row-inline{
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+}
+.lyr7bd21-checkbox{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.lyr7bd21-checkbox input{
+  width: auto;
+  margin: 0;
+}
+.lyr7bd21-form-actions{
+  display:flex;
+  align-items:center;
+  gap: .65rem;
+  flex-wrap: wrap;
+}
+
+.lyr7bd21-table-wrap{
+  overflow:auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-top: .6rem;
+}
+table{
+  width:100%;
+  border-collapse: collapse;
+  min-width: 680px;
+}
+thead th{
+  text-align:left;
+  font-size:.86rem;
+  color: var(--title-hi);
+  padding: .9rem;
+  background: rgba(255,255,255,.04);
+  border-bottom: 1px solid var(--border);
+}
+tbody td{
+  padding: .85rem .9rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+}
+tbody tr:hover td{ background: rgba(255,255,255,.03); }
+.lyr7bd21-ok{ color: #79ffa8; font-weight: 900; }
+.lyr7bd21-warn{ color: #ffd27a; font-weight: 900; }
+
+/* REVIEWS */
+.lyr7bd21-reviews-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: .9rem;
+}
+.lyr7bd21-review-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+.lyr7bd21-review-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;
+  margin-bottom: .5rem;
+}
+.lyr7bd21-stars{ color: var(--title-hi); letter-spacing: .8px; }
+.lyr7bd21-review-card p{ margin: 0 0 .8rem; color: #eef2ff; }
+.lyr7bd21-reviewer{ text-align:right; color: var(--muted); font-weight: 900; }
+
+/* FAQ (no JS) */
+.lyr7bd21-faq{ display:flex; flex-direction:column; gap:.75rem; }
+.lyr7bd21-faq-item{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow:hidden;
+}
+.lyr7bd21-faq-item summary{
+  cursor:pointer;
+  padding: .95rem 1rem;
+  font-weight: 900;
+  list-style: none;
+}
+.lyr7bd21-faq-item summary::-webkit-details-marker{ display:none; }
+.lyr7bd21-faq-body{
+  padding: 0 1rem 1rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* FOOTER */
+.lyr7bd21-site-footer{
+  border-top: 1px solid var(--border);
+  padding: 2rem 0 1.2rem;
+  background: var(--frame);
+}
+.lyr7bd21-footer-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+.lyr7bd21-footer-title{
+  font-weight: 900;
+  margin-bottom: .6rem;
+}
+.lyr7bd21-site-footer a{
+  display:block;
+  color: var(--muted);
+  padding: .2rem 0;
+  font-weight: 700;
+}
+.lyr7bd21-site-footer a:hover{ color:#fff; text-decoration: underline; }
+
+.lyr7bd21-trust-row{
+  display:flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.lyr7bd21-trust{
+  padding: .45rem .6rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 900;
+  font-size: .9rem;
+}
+
+.lyr7bd21-footer-bottom{
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+@media (min-width: 820px){
+  .lyr7bd21-nav{ display:flex; }
+  .lyr7bd21-hero-grid{ grid-template-columns: 1.25fr .85fr; gap: 1.4rem; }
+  .lyr7bd21-games-grid{ grid-template-columns: repeat(5, 1fr); }
+  .lyr7bd21-providers-grid{ grid-template-columns: repeat(4, 1fr); }
+  .lyr7bd21-reviews-grid{ grid-template-columns: repeat(3, 1fr); }
+  .lyr7bd21-form-grid{ grid-template-columns: repeat(2, 1fr); }
+  .lyr7bd21-footer-grid{ grid-template-columns: 1.2fr 1fr 1fr 1.2fr; }
+}
+/* =========================
+   MOBILE FIXES / RESPONSIVE
+   вставь в конец CSS
+========================= */
+
+/* 1) Мобильное меню (бургер + выпадашка) */
+.lyr7bd21-header-row{ position: relative; }
+
+.lyr7bd21-nav-toggle{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lyr7bd21-hamburger{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.lyr7bd21-hamburger span{
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.lyr7bd21-hamburger span + span{ margin-top: 4px; }
+
+/* по умолчанию на мобилке nav прячем, открываем по чекбоксу */
+@media (max-width: 819px){
+  .lyr7bd21-nav{
+    position: absolute;
+    top: calc(100% + .6rem);
+    left: 0;
+    right: 0;
+
+    display: none;
+    flex-direction: column;
+    gap: .25rem;
+
+    padding: .6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  }
+
+  .lyr7bd21-nav a{
+    padding: .75rem .8rem;
+    border-radius: 12px;
+  }
+
+  .lyr7bd21-nav-toggle:checked ~ .lyr7bd21-nav{ display: flex; }
+
+  /* бургер превращаем в X */
+  .lyr7bd21-nav-toggle:checked + .lyr7bd21-hamburger span:nth-child(1){
+    transform: translateY(6px) rotate(45deg);
+  }
+  .lyr7bd21-nav-toggle:checked + .lyr7bd21-hamburger span:nth-child(2){
+    opacity: 0;
+  }
+  .lyr7bd21-nav-toggle:checked + .lyr7bd21-hamburger span:nth-child(3){
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
+@media (min-width: 820px){
+  .lyr7bd21-hamburger{ display:none; }
+  .lyr7bd21-nav-toggle{ display:none; }
+}
+
+/* 2) Top Winnings: делаем “карточную” сетку на телефоне */
+@media (max-width: 560px){
+  .lyr7bd21-winnings-head{ display: none; }
+
+  .lyr7bd21-winnings-row{
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "player win"
+      "game time";
+    row-gap: .35rem;
+  }
+
+  .lyr7bd21-winnings-row > :nth-child(1){ grid-area: player; }
+  .lyr7bd21-winnings-row > :nth-child(2){ grid-area: game; }
+  .lyr7bd21-winnings-row > :nth-child(3){ grid-area: win; }
+  .lyr7bd21-winnings-row > :nth-child(4){ grid-area: time; }
+
+  .lyr7bd21-winnings-row{
+    padding: .85rem .9rem;
+  }
+}
+
+/* 3) Гриды: на очень узких экранах — 1 колонка */
+@media (max-width: 520px){
+  .lyr7bd21-games-grid{ grid-template-columns: 1fr; }
+  .lyr7bd21-providers-grid{ grid-template-columns: 1fr; }
+
+  .lyr7bd21-hero-actions .lyr7bd21-btn,
+  .lyr7bd21-hero-banner .lyr7bd21-btn{
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 4) (Не обязательно, но полезно) стили для intro-card/section-tight,
+   у тебя эти классы есть в HTML, а CSS нет */
+.lyr7bd21-intro-card{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem;
+}
+.lyr7bd21-intro-text{ margin: 0; color: var(--muted); }
+.lyr7bd21-section-tight{ padding-top: 1.2rem; padding-bottom: 1.2rem; }
+/* =========================
+   FIRST SCREEN (H1 -> BANNER -> BUTTON)
+   вставь в конец CSS
+========================= */
+
+.lyr7bd21-hero{
+  /* чтобы это был именно “первый экран” */
+  min-height: calc(100svh - 78px); /* 78px примерно высота шапки */
+  display: flex;
+  align-items: center;
+}
+
+.lyr7bd21-hero-grid--clean{
+  max-width: 980px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  gap: 1.1rem;
+}
+
+.lyr7bd21-hero-title{
+  max-width: 22ch;
+  margin: 0;
+}
+
+.lyr7bd21-hero-banner--big{
+  width: 100%;
+  max-width: 980px;
+  min-height: 340px;
+
+  align-items: center;
+  text-align: center;
+}
+
+.lyr7bd21-hero-cta{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.lyr7bd21-hero-cta .lyr7bd21-btn{
+  width: min(360px, 100%);
+}
+
+/* чуть адаптируем высоту под мобилку */
+@media (max-width: 819px){
+  .lyr7bd21-hero{
+    min-height: calc(100svh - 70px);
+    padding: 1.8rem 0 2rem;
+  }
+
+  .lyr7bd21-hero-banner--big{
+    min-height: 280px;
+  }
+}
+/* прибрати рамку/підкладку навколо hero-банера */
+.lyr7bd21-hero-banner.lyr7bd21-hero-banner--big{
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;      /* щоб не було “внутрішнього поля” */
+}
+/* MOBILE: робимо hero компактнішим і банер більшим */
+@media (max-width: 819px){
+
+  /* прибираємо величезну висоту першого екрану */
+  .lyr7bd21-hero{
+    min-height: auto;            /* було 100svh */
+    padding: 1.2rem 0 1.6rem;
+    align-items: flex-start;     /* щоб не центрувало по вертикалі */
+  }
+
+  /* банер займає ширину і має нормальну висоту */
+  .lyr7bd21-hero-banner--big{
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    aspect-ratio: 16 / 9;        /* ключове */
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* картинка точно заповнює банер */
+  .lyr7bd21-hero-banner-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* трохи піджимаємо відступи між елементами */
+  .lyr7bd21-hero-grid--clean{
+    gap: .9rem;
+  }
+}
+.lyr7bd21-signup-images{
+  display: flex;
+  gap: 1rem;              /* відстань між картинками */
+}
+
+.lyr7bd21-signup-images img{
+  width: 100%;
+  max-width: 360px;       /* або будь-яка потрібна */
+  height: auto;
+  border-radius: 12px;    /* якщо хочеш */
+}
+@media (max-width: 600px){
+  .lyr7bd21-signup-images{
+    flex-direction: column;
+  }
+}
+.lyr7bd21-signup-images{
+  margin: 0 auto;
+}
+/* Footer responsible gaming logos */
+.lyr7bd21-trust-row--logos{
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+.lyr7bd21-trust-row--logos a{
+  display: grid;
+  place-items: center;
+  padding: .4rem .55rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.lyr7bd21-trust-row--logos a:hover{
+  transform: translateY(-1px);
+  border-color: rgba(84,100,210,.45);
+  background: rgba(255,255,255,.06);
+}
+
+.lyr7bd21-trust-row--logos img{
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+.lyr7bd21-trust--age{
+  font-weight: 900;
+  font-size: .9rem;
+  padding: .45rem .6rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--border);
+}
+/* Footer payments */
+.lyr7bd21-footer-payments{
+  margin-top: 1.4rem;
+}
+
+.lyr7bd21-footer-payments .lyr7bd21-footer-title{
+  margin-bottom: .6rem;
+}
+
+.lyr7bd21-payments-row{
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  flex-wrap: wrap;
+}
+
+.lyr7bd21-payments-row img{
+  height: 28px;
+  width: auto;
+  display: block;
+  padding: .35rem .5rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  transition: transform .15s ease, opacity .15s ease, border-color .15s ease;
+  opacity: .9;
+}
+
+.lyr7bd21-payments-row img:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+  border-color: rgba(84,100,210,.45);
+}
+/* =========================
+   Smaller game + provider cards on mobile
+   Paste at the END of style.css
+========================= */
+
+@media (max-width: 819px){
+  /* Games: 3 колонки на телефонах -> картки менші */
+  .lyr7bd21-games-grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: .55rem;
+  }
+
+  .lyr7bd21-game-card{
+    border-radius: 12px;
+  }
+
+  /* Картинка в картці: фіксуємо пропорції, щоб картка була компактніша */
+  .lyr7bd21-game-card img{
+    width: 100%;
+    aspect-ratio: 4 / 3;   /* можна 1 / 1 якщо хочеш квадратні */
+    height: auto;
+    object-fit: cover;
+  }
+
+  .lyr7bd21-game-meta{
+    padding: .55rem .6rem;
+    gap: .5rem;
+  }
+
+  .lyr7bd21-game-name{
+    font-size: .9rem;
+  }
+
+  .lyr7bd21-btn-sm{
+    padding: .38rem .55rem;
+    font-size: .85rem;
+    border-radius: 10px;
+  }
+
+  /* Providers: 3–4 колонки + менший padding */
+  .lyr7bd21-providers-grid{
+    grid-template-columns: repeat(4, 1fr);
+    gap: .55rem;
+  }
+
+  .lyr7bd21-provider{
+    padding: .6rem;
+    border-radius: 12px;
+  }
+
+  .lyr7bd21-providers-grid--logos img{
+    height: 22px;   /* було “як є” — тепер менше */
+    width: auto;
+  }
+}
+
+/* Дуже вузькі екрани: не 1 колонка, а 2 (щоб не роздувало картки) */
+@media (max-width: 520px){
+  .lyr7bd21-games-grid{ grid-template-columns: repeat(2, 1fr); }
+  .lyr7bd21-providers-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Якщо зовсім маленький екран — тоді вже 1 колонка */
+@media (max-width: 360px){
+  .lyr7bd21-games-grid{ grid-template-columns: 1fr; }
+  .lyr7bd21-providers-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+/* Обгортка для таблиці */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  table {
+    width: auto;
+    min-width: 600px;
+  }
+}
